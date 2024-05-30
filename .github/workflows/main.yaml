@@ -1,4 +1,4 @@
-name: Example Workflow
+name: Deploy Subgraph to Goldsky
 
 on:
   push:
