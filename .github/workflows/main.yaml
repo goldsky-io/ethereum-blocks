@@ -1,9 +1,6 @@
 name: Deploy Subgraph to Goldsky
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   deploy-subgraph:
