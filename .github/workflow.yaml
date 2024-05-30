@@ -1,0 +1,24 @@
+name: Example Workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Checkout private action repo
+        uses: actions/checkout@v4
+        with:
+          repository: goldsky-io/goldsky-deploy
+          path: .github/actions/goldsky-deploy
+
+      - name: Run custom action
+        uses: ./.github/actions/private-action
+        with:
+          api_key: ${{ secrets.GOLDSKY_API_KEY }}
+          subgraph_name: "ethereum-blocks"
+          path: "."
