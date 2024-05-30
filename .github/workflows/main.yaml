@@ -3,7 +3,7 @@ name: Example Workflow
 on: [push, pull_request]
 
 jobs:
-  build:
+  Deploy Subgraph:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,15 +20,7 @@ jobs:
         run: npm run codegen
       - name: build
         run: npm run build
-
-
-#      - name: Checkout private action repo
-#        uses: actions/checkout@v4
-#        with:
-#          repository: goldsky-io/goldsky-deploy
-#          path: .github/actions/goldsky-deploy
-
-      - name: Run custom action
+      - name: Deploy Subgraph
         uses: goldsky-io/goldsky-deploy@1.0.0
         with:
           api_key: ${{ secrets.GOLDSKY_API_KEY }}
