@@ -3,7 +3,7 @@ name: Example Workflow
 on: [push, pull_request]
 
 jobs:
-  Deploy Subgraph:
+  deploy-subgraph:
     runs-on: ubuntu-latest
 
     steps:
