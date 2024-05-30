@@ -22,14 +22,14 @@ jobs:
         run: npm run build
 
 
-      - name: Checkout private action repo
-        uses: actions/checkout@v4
-        with:
-          repository: goldsky-io/goldsky-deploy
-          path: .github/actions/goldsky-deploy
+#      - name: Checkout private action repo
+#        uses: actions/checkout@v4
+#        with:
+#          repository: goldsky-io/goldsky-deploy
+#          path: .github/actions/goldsky-deploy
 
       - name: Run custom action
-        uses: actions/goldsky-deploy@v1.0.0
+        uses: goldsky-io/goldsky-deploy@1.0.0
         with:
           api_key: ${{ secrets.GOLDSKY_API_KEY }}
           subgraph_name: "ethereum-blocks"
