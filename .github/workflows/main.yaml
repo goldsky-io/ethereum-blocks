@@ -17,7 +17,7 @@ jobs:
           path: .github/actions/goldsky-deploy
 
       - name: Run custom action
-        uses: ./.github/actions/private-action
+        uses: ./.github/actions/goldsky-deploy
         with:
           api_key: ${{ secrets.GOLDSKY_API_KEY }}
           subgraph_name: "ethereum-blocks"
