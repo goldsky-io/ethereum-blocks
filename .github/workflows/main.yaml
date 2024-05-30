@@ -1,0 +1,31 @@
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-subgraph:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+      - name: Install dependencies
+        run: npm install
+      - name: codegen
+        run: npm run codegen
+      - name: build
+        run: npm run build
+      - name: Deploy Subgraph
+        uses: goldsky-io/goldsky-deploy@1.0.0
+        with:
+          api_key: ${{ secrets.GOLDSKY_API_KEY }}
+          subgraph_name: "ethereum-blocks"
+          path: "."
