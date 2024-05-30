@@ -24,7 +24,7 @@ jobs:
       - name: build
         run: npm run build
       - name: Deploy Subgraph
-        uses: goldsky-io/goldsky-deploy@1.0.0
+        uses: goldsky-io/goldsky-deploy@latest
         with:
           api_key: ${{ secrets.GOLDSKY_API_KEY }}
           subgraph_name: "ethereum-blocks"
